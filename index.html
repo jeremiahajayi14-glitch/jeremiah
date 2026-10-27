@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HUB is a freelance creative studio helping businesses grow with digital services.">
+  <title>HUB | Creative Freelance Studio</title>
+
+  <style>
+    :root {
+      --primary: #5265f5;
+      --dark: #151a2d;
+      --light: #f6f7fc;
+      --muted: #687086;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #eceef5;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 13px 23px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #394bd6;
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #f4f5ff, #ffffff 65%);
+      padding: 105px 0 95px;
+    }
+
+    .hero-content {
+      max-width: 790px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin: 20px 0;
+    }
+
+    h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .button-outline {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid #d8dcef;
+      border-radius: 9px;
+      margin-left: 10px;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      max-width: 620px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      margin: 10px 0;
+    }
+
+    .section-heading p,
+    .card p {
+      color: var(--muted);
+    }
+
+    .services-grid,
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid #e9ebf4;
+      border-radius: 16px;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #1b245010;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: #eef0ff;
+      border-radius: 12px;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .work {
+      background: var(--light);
+    }
+
+    .project-visual {
+      min-height: 175px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #dfe4ff, #a9b5ff);
+      display: grid;
+      place-items: center;
+      font-size: 35px;
+      font-weight: 800;
+      color: #3849bd;
+      margin-bottom: 20px;
+    }
+
+    .project-visual.purple {
+      background: linear-gradient(135deg, #f0e2ff, #c5a3f5);
+      color: #6736a5;
+    }
+
+    .project-visual.orange {
+      background: linear-gradient(135deg, #ffebd5, #ffc58b);
+      color: #a65413;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--primary);
+      background: #eef0ff;
+      border-radius: 20px;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-panel {
+      padding: 35px;
+      border-radius: 20px;
+      background: var(--dark);
+      color: white;
+    }
+
+    .about-panel p {
+      color: #c5cadd;
+      margin-top: 15px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin: 15px 0 25px;
+    }
+
+    .contact {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+
+    .contact .section-heading {
+      margin: 0 auto 28px;
+    }
+
+    .contact .section-heading p {
+      color: #c5cadd;
+      margin-top: 15px;
+    }
+
+    footer {
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        padding: 25px 5%;
+        background: white;
+        border-bottom: 1px solid #eceef5;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .services-grid,
+      .projects-grid,
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .button-outline {
+        margin: 12px 0 0;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">hub<span>.</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation" aria-expanded="false">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#work">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="button">Let's Talk</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="eyebrow">Welcome to HUB</span>
+        <h1>Creative solutions for your <span>next big idea.</span></h1>
+        <p>
+          We help businesses build their online presence through
+          creative services, digital experiences, and thoughtful solutions.
+          Let's turn your ideas into something meaningful.
+        </p>
+        <a href="#contact" class="button">Start a Project →</a>
+        <a href="#work" class="button-outline">Explore Our Work</a>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">What We Do</span>
+          <h2>Services that help your business grow.</h2>
+          <p>Practical creative and digital support tailored to your goals.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="card-icon">✦</div>
+            <h3>Web Design</h3>
+            <p>Clean, responsive online experiences that help your business make a strong first impression.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">◈</div>
+            <h3>Graphic Design</h3>
+            <p>Visual content and brand materials that communicate your message clearly and professionally.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↗</div>
+            <h3>Digital Marketing</h3>
+            <p>Creative digital campaigns and content to help you connect with potential customers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Selected Work</span>
+          <h2>A look at what we can create.</h2>
+          <p>These are sample portfolio concepts. Replace them with your real projects before publishing.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card">
+            <div class="project-visual">BRAND.</div>
+            <span class="tag">Branding</span>
+            <h3>Brand Identity Concept</h3>
+            <p>A visual direction for a modern business.</p>
+          </article>
+
+          <article class="card">
+            <div class="project-visual purple">STUDIO</div>
+            <span class="tag">Web Design</span>
+            <h3>Creative Studio Concept</h3>
+            <p>A clean digital presence for a creative brand.</p>
+          </article>
+
+          <article class="card">
+            <div class="project-visual orange">GROW ↗</div>
+            <span class="tag">Marketing</span>
+            <h3>Campaign Concept</h3>
+            <p>A promotional direction focused on business growth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-layout">
+        <div class="about-panel">
+          <span class="eyebrow">The HUB Approach</span>
+          <h2>Good ideas deserve great execution.</h2>
+          <p>We believe in clear communication, thoughtful work, and solutions built around each client's goals.</p>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">About HUB</span>
+          <h2>Your idea. Our creative energy.</h2>
+          <p>
+            HUB is a freelance service brand focused on helping businesses
+            present themselves professionally and reach more customers.
+            We work with clients to understand their needs and find the
+            right creative solutions.
+          </p>
+          <a href="#contact" class="button">Work With Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Let's Connect</span>
+          <h2>Have a project in mind?</h2>
+          <p>Tell us what you need, and let's discuss how HUB can help.</p>
+        </div>
+
+        <a class="button" id="emailButton"
+          href="mailto:YOUR_EMAIL@example.com?subject=HUB%20Project%20Enquiry">
+          Email HUB →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="#home" class="logo">hub<span>.</span></a>
+      <p>© <span id="year"></span> HUB. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
